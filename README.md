@@ -4,7 +4,7 @@
 
 - Install [React Native](http://facebook.github.io/react-native/docs/getting-started.html)
 - Clone this repository
-- Run `npm start` from the project root directory in a Terminal emulator
+- Run `npm install && npm start` from the project root directory in a Terminal emulator
 - Open `iOS/SmartphoneSymphony.xcodeproj` in Xcode
 - Build and Run the project ensuring the application is still running in Terminal
 
