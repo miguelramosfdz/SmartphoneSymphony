@@ -1,15 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-'use strict';
-
-var React = require('react-native');
-var {
+let React = require('react-native');
+let {
   AppRegistry,
   StyleSheet,
   Animated,
-  TouchableOpacity,
+  TouchableHighlight,
   Text,
   View
 } = React;
@@ -47,46 +41,48 @@ var {
 //   }
 // }
 
-var SmartphoneSymphony = React.createClass({
-  render: function() {
+let SmartphoneSymphony = React.createClass({
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.appName}>Smartphone Symphony</Text>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => {
-              return;
-            }}>
-            <Text style={styles.buttonText}>Instructions</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => {
-              return;
-            }}>
-            <Text style={styles.buttonText}>Perform</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => {
-              return;
-            }}>
-            <Text style={styles.buttonText}>About</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableHighlight
+          style={[styles.button, {borderTopWidth: 2, borderTopColor: 'white'}]}
+          underlayColor='rgba(255, 255, 255, 0.3)'
+          onShowUnderlay={() => {
+            return;
+          }}
+          onPress={() => {
+            return;
+          }}>
+          <Text style={styles.buttonText}>Instructions</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.button}
+          underlayColor='rgba(255, 255, 255, 0.3)'
+          onPress={() => {
+            return;
+          }}>
+          <Text style={styles.buttonText}>Perform</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={styles.button}
+          underlayColor='rgba(255, 255, 255, 0.3)'
+          onPress={() => {
+            return;
+          }}>
+          <Text style={styles.buttonText}>About</Text>
+        </TouchableHighlight>
       </View>
     );
   }
 });
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'stretch',
-    // alignItems: 'center',
     backgroundColor: '#FF5744',
   },
   welcome: {
@@ -100,10 +96,10 @@ var styles = StyleSheet.create({
     marginBottom: 5,
   },
   appName: {
-    fontFamily: 'Times New Roman',
-    fontSize: 52,
+    fontFamily: 'SavoyeLetPlain',
+    fontSize: 72,
     textAlign: 'center',
-    paddingBottom: 100
+    paddingBottom: 50
   },
   appLogo: {
     width: 100,
@@ -112,16 +108,16 @@ var styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 14
   },
-  buttonContainer: {
+  button: {
     borderBottomColor: 'white',
-    borderWidth: 1,
-    borderStyle: 'dashed',
+    borderBottomWidth: 2,
   },
   buttonText: {
     fontSize: 26,
-    fontFamily: 'Times New Roman',
+    fontFamily: 'Bradley Hand',
     padding: 30,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white'
   }
 });
 
