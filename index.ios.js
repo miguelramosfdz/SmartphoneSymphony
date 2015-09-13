@@ -2,8 +2,9 @@ let React = require('react-native');
 let {
   AppRegistry,
   StyleSheet,
-  Animated,
+  // Animated,
   TouchableHighlight,
+  Image,
   Text,
   View
 } = React;
@@ -99,14 +100,14 @@ let styles = StyleSheet.create({
     fontFamily: 'SavoyeLetPlain',
     fontSize: 72,
     textAlign: 'center',
-    paddingBottom: 50
+    paddingBottom: 50,
   },
   appLogo: {
-    width: 100,
-    height: 100,
-    marginTop: 20,
-    marginBottom: 20,
-    borderRadius: 14
+    position: 'absolute',
+    width: 331,
+    height: 331,
+    top: 10,
+    left: 10
   },
   button: {
     borderBottomColor: 'white',
