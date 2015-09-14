@@ -1,13 +1,44 @@
 let React = require('react-native');
+
 let {
   AppRegistry,
+  Navigator,
   StyleSheet,
   Animated,
   TouchableHighlight,
   Image,
   Text,
-  View
+  View,
+  AlertIOS
 } = React;
+
+class App extends React.Component {
+  render() {
+    return (
+      <Navigator
+        initialRoute={{name: 'Home', index: 0}}
+        configureScene={(route) => Navigator.SceneConfigs.FloatFromBottom}
+        renderScene={(route, navigator) =>
+          <SmartphoneSymphony
+            name={route.name}
+            onForward={() => {
+              var nextIndex = route.index + 1;
+              navigator.push({
+                name: 'Scene ' + nextIndex,
+                index: nextIndex
+              });
+            }}
+            onBack={() => {
+              if (route.index > 0) {
+                navigator.pop();
+              }
+            }}
+          />
+        }
+      />
+    )
+  }
+}
 
 class SmartphoneSymphony extends React.Component {
   constructor(props: any) {
@@ -56,7 +87,7 @@ class SmartphoneSymphony extends React.Component {
           <Text style={styles.buttonText}>About</Text>
         </TouchableHighlight>
       </View>
-    );
+    )
   }
   componentDidMount() {
     this.state.bounceValue.setValue(0.05);    // Start small
