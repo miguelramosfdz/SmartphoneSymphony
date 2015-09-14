@@ -2,55 +2,32 @@ let React = require('react-native');
 let {
   AppRegistry,
   StyleSheet,
-  // Animated,
+  Animated,
   TouchableHighlight,
   Image,
   Text,
   View
 } = React;
 
-// @see https://facebook.github.io/react-native/docs/animations.html#animated
-// class Playground extends React.Component {
-//   constructor(props: any) {
-//     super(props);
-//     this.state = {
-//       bounceValue: new Animated.Value(0),
-//     };
-//   }
-//   render(): ReactElement {
-//     return (
-//       <Animated.Image                         // Base: Image, Text, View
-//         source={{uri: 'http://i.imgur.com/XMKOH81.jpg'}}
-//         style={{
-//           flex: 1,
-//           transform: [                        // `transform` is an ordered array
-//             {scale: this.state.bounceValue},  // Map `bounceValue` to `scale`
-//           ]
-//         }}
-//       />
-//     );
-//   }
-//   componentDidMount() {
-//     this.state.bounceValue.setValue(1.5);     // Start large
-//     Animated.spring(                          // Base: spring, decay, timing
-//       this.state.bounceValue,                 // Animate `bounceValue`
-//       {
-//         toValue: 0.8,                         // Animate to smaller size
-//         friction: 1,                          // Bouncier spring
-//       }
-//     ).start();                                // Start the animation
-//   }
-// }
-
-let SmartphoneSymphony = React.createClass({
-  render() {
+class SmartphoneSymphony extends React.Component {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      bounceValue: new Animated.Value(0),
+    };
+  }
+  render(): ReactElement {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.appLogo}
-          source={require('image!SmartSymph-52')}>
+        <Animated.Image
+          source={require('image!SmartSymph-52')}
+          style={[styles.appLogo, {
+            transform: [
+              {scale: this.state.bounceValue}
+            ]
+          }]}>
           <Text style={styles.appName}>Smartphone Symphony</Text>
-        </Image>
+        </Animated.Image>
         <TouchableHighlight
           style={[styles.button, {borderTopWidth: 2, borderTopColor: 'white'}]}
           underlayColor='rgba(255, 255, 255, 0.3)'
@@ -81,7 +58,17 @@ let SmartphoneSymphony = React.createClass({
       </View>
     );
   }
-});
+  componentDidMount() {
+    this.state.bounceValue.setValue(0.05);    // Start small
+    Animated.spring(                          // Base: spring, decay, timing
+      this.state.bounceValue,                 // Animate `bounceValue`
+      {
+        toValue: 1,                           // Animate to original size
+        tension: 200                          // Spring with more tension
+      }
+    ).start();
+  }
+}
 
 let styles = StyleSheet.create({
   container: {
