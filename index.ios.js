@@ -46,7 +46,11 @@ let SmartphoneSymphony = React.createClass({
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.appName}>Smartphone Symphony</Text>
+        <Image
+          style={styles.appLogo}
+          source={require('image!SmartSymph-52')}>
+          <Text style={styles.appName}>Smartphone Symphony</Text>
+        </Image>
         <TouchableHighlight
           style={[styles.button, {borderTopWidth: 2, borderTopColor: 'white'}]}
           underlayColor='rgba(255, 255, 255, 0.3)'
@@ -100,14 +104,16 @@ let styles = StyleSheet.create({
     fontFamily: 'SavoyeLetPlain',
     fontSize: 72,
     textAlign: 'center',
-    paddingBottom: 50,
+    marginTop: 50,
+    backgroundColor: 'transparent',
+    letterSpacing: 2
   },
   appLogo: {
-    position: 'absolute',
-    width: 331,
-    height: 331,
-    top: 10,
-    left: 10
+    alignSelf: 'center',
+    width: 250,
+    height: 250,
+    top: -30,
+    opacity: 0.85
   },
   button: {
     borderBottomColor: 'white',
