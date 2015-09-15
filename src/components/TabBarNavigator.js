@@ -2,7 +2,7 @@
 
 var React = require('react-native');
 var ContextNavigator = require('./ContextNavigator');
-var DummyScreen = require('./SmartphoneSymphony');
+var DummyScreen = require('./DummyScreen');
 
 var {
   StyleSheet,
