@@ -1,5 +1,11 @@
 # SmartphoneSymphony
 
+# Features
+
+- Animated Tabbed Navigation with Modal window
+- Custom Tab Bar Font Icons
+- React Native Navigator integration
+
 # Installation
 
 - Install [React Native](http://facebook.github.io/react-native/docs/getting-started.html)
