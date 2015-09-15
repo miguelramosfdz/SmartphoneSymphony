@@ -1,19 +1,14 @@
 let React = require('react-native');
-let TabBarNavigator = require('./TabBarNavigator');
 
 let {
-  AppRegistry,
-  Navigator,
   StyleSheet,
   Animated,
-  TouchableHighlight,
   Image,
   Text,
   View,
-  AlertIOS
 } = React;
 
-class SmartphoneSymphony extends React.Component {
+class HomeTab extends React.Component {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -32,33 +27,6 @@ class SmartphoneSymphony extends React.Component {
           }]}>
           <Text style={styles.appName}>Smartphone Symphony</Text>
         </Animated.Image>
-        <TouchableHighlight
-          style={[styles.button, {borderTopWidth: 2, borderTopColor: 'white'}]}
-          underlayColor='rgba(255, 255, 255, 0.3)'
-          onShowUnderlay={() => {
-            return;
-          }}
-          onPress={() => {
-            return;
-          }}>
-          <Text style={styles.buttonText}>Instructions</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={styles.button}
-          underlayColor='rgba(255, 255, 255, 0.3)'
-          onPress={() => {
-            return;
-          }}>
-          <Text style={styles.buttonText}>Perform</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={styles.button}
-          underlayColor='rgba(255, 255, 255, 0.3)'
-          onPress={() => {
-            return;
-          }}>
-          <Text style={styles.buttonText}>About</Text>
-        </TouchableHighlight>
       </View>
     )
   }
@@ -81,16 +49,6 @@ let styles = StyleSheet.create({
     alignItems: 'stretch',
     backgroundColor: '#FF5744',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
   appName: {
     fontFamily: 'SavoyeLetPlain',
     fontSize: 72,
@@ -105,18 +63,7 @@ let styles = StyleSheet.create({
     height: 250,
     top: -30,
     opacity: 0.85
-  },
-  button: {
-    borderBottomColor: 'white',
-    borderBottomWidth: 2,
-  },
-  buttonText: {
-    fontSize: 26,
-    fontFamily: 'Bradley Hand',
-    padding: 30,
-    textAlign: 'center',
-    color: 'white'
   }
 });
 
-module.exports = SmartphoneSymphony;
+module.exports = HomeTab;

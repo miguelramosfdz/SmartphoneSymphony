@@ -5,6 +5,9 @@
 'use strict';
 
 var React = require('react-native');
+let HomeTab = require('./HomeTab')
+let InstructionsTab = require('./InstructionsTab')
+
 var {
   StyleSheet,
   Text,
@@ -43,7 +46,7 @@ var IconNavigator = React.createClass({
         <TabBarItemIOS
           name="home"
           iconName={'material|home'}
-          title={''}
+          title={'Home'}
           badgeValue={null}
           iconSize={32}
           accessibilityLabel="Home Tab"
@@ -58,9 +61,9 @@ var IconNavigator = React.createClass({
         <TabBarItemIOS
           name="perform"
           iconName={'material|surround-sound'}
-          title={''}
+          title={'Perform'}
           iconSize={32}
-          accessibilityLabel="Settings Tab"
+          accessibilityLabel="Perform Tab"
           selected={this.state.selectedTab === 'perform'}
           onPress={() => {
             this.setState({
@@ -72,9 +75,9 @@ var IconNavigator = React.createClass({
         <TabBarItemIOS
           name="instructions"
           iconName={'material|info'}
-          title={''}
+          title={'Instructions'}
           iconSize={32}
-          accessibilityLabel="Messages Tab"
+          accessibilityLabel="Instructions Tab"
           selected={this.state.selectedTab === 'instructions'}
           onPress={() => {
             this.setState({
@@ -83,103 +86,35 @@ var IconNavigator = React.createClass({
           }}>
           {this._renderContent()}
         </TabBarItemIOS>
+        <TabBarItemIOS
+          name="about"
+          iconName={'material|info'}
+          title={'About'}
+          iconSize={32}
+          accessibilityLabel="Messages Tab"
+          selected={this.state.selectedTab === 'about'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'about',
+            });
+          }}>
+          {this._renderContent()}
+        </TabBarItemIOS>
       </TabBarIOS>
     );
   },
   _renderContent: function () {
-    return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.topContainer}>
-          <TouchableHighlight
-            underlayColor="transparent"
-            onPress={() => alert('Beer!')}>
-            <Icon
-              name='ion|beer'
-              size={40}
-              color='#887700'
-              style={styles.beer}
-              />
-          </TouchableHighlight>
-          <Icon
-            name='material|face'
-            size={40}
-            color='black'
-            style={styles.github}
-            />
-          <Icon
-            name='fontawesome|facebook-square'
-            size={40}
-            color={BrandColors.Facebook}
-            style={styles.facebook}
-            />
-          <Icon
-            name='foundation|lightbulb'
-            size={40}
-            style={styles.lightbulb}/>
-        </View>
-
-        <Text style={styles.header}>
-          {'Material Icons'}
-        </Text>
-
-        <View style={styles.topContainer}>
-
-          <Spinner name='fontawesome|spinner' size={24} style={{width: 24, height: 24, backgroundColor: 'transparent'}}
-                   color='#777'/>
-          <Spinner name='ion|load-a' size={24} style={{width: 24, height: 24, backgroundColor: 'transparent'}}
-                   color='#777'/>
-          <Spinner name='ion|load-b' size={24} style={{width: 24, height: 24, backgroundColor: 'transparent'}}
-                   color='#777'/>
-          <Spinner name='ion|load-c' size={24} style={{width: 24, height: 24, backgroundColor: 'transparent'}}
-                   color='#777'/>
-          <Spinner name='ion|load-d' size={24} style={{width: 24, height: 24, backgroundColor: 'transparent'}}
-                   color='#777'/>
-        </View>
-
-        <Text style={styles.header}>
-          {'Stacked Icons!'}
-        </Text>
-        <Icon
-          name='fontawesome|square'
-          size={70}
-          color={BrandColors.Twitter}
-          style={styles.twitterOutline}>
-          <Icon
-            name='fontawesome|twitter'
-            size={40}
-            color='#ffffff'
-            style={[styles.twitterIcon, {backgroundColor: 'transparent'}]}/>
-        </Icon>
-
-        <Text style={styles.header}>
-          {'Create social sign in buttons'}
-        </Text>
-        <View
-          style={styles.signInWithTwitterButton}>
-          <Icon
-            name='fontawesome|twitter'
-            size={28}
-            color='#ffffff'
-            style={styles.signInWithTwitterIcon}/>
-          <Text style={styles.signInText}>
-            {'Sign in with Twitter'}
-          </Text>
-        </View>
-
-        <View
-          style={styles.signInWithFacebookButton}>
-          <Icon
-            name='fontawesome|facebook'
-            size={28}
-            color='#ffffff'
-            style={styles.signInWithFacebookIcon}/>
-          <Text style={styles.signInText}>
-            {'Sign in with Facebook'}
-          </Text>
-        </View>
-
-      </ScrollView>
-    );
+    let {selectedTab} = this.state
+    switch (selectedTab) {
+      case 'instructions':
+        return (
+          <InstructionsTab />
+        );
+      default:
+        return (
+          <HomeTab />
+        );
+    }
   }
 });
 
