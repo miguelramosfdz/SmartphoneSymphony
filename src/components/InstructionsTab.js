@@ -11,10 +11,12 @@ class InstructionsTab extends React.Component {
   render(): ReactElement {
     return (
       <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Instructions</Text>
+        </View>
         <ScrollView
           contentContainerStyle={styles.contentContainer}
           style={styles.scrollView}>
-            <Text style={styles.title}>Instructions</Text>
             <Text style={styles.text}>Please keep talking to a minimum.</Text>
             <Text style={styles.text}>Any number of smartphones can be used. A group of 35 is desired but smaller or larger groups will work.</Text>
             <Text style={styles.text}>If laptops or other devices are available, they may join.</Text>
@@ -31,20 +33,22 @@ let styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#FF5744',
   },
+  titleContainer: {
+    marginTop: 50
+  },
   contentContainer: {
     padding: 20
   },
   title: {
-    fontSize: 52,
-    fontFamily: 'Bradley Hand',
-    marginBottom: 25,
+    fontSize: 72,
+    fontFamily: 'SavoyeLetPlain',
     textAlign: 'center',
     color: 'white'
   },
   text: {
     fontSize: 22,
     fontFamily: 'Bradley Hand',
-    marginBottom: 25,
+    marginBottom: 20,
     textAlign: 'center',
     color: 'white'
   }

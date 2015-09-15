@@ -5,8 +5,9 @@
 'use strict';
 
 var React = require('react-native');
-let HomeTab = require('./HomeTab')
-let InstructionsTab = require('./InstructionsTab')
+let HomeTab = require('./HomeTab');
+let InstructionsTab = require('./InstructionsTab');
+let AboutTab = require('./AboutTab');
 
 var {
   StyleSheet,
@@ -88,7 +89,7 @@ var IconNavigator = React.createClass({
         </TabBarItemIOS>
         <TabBarItemIOS
           name="about"
-          iconName={'material|info'}
+          iconName={'material|face'}
           title={'About'}
           iconSize={32}
           accessibilityLabel="Messages Tab"
@@ -109,6 +110,10 @@ var IconNavigator = React.createClass({
       case 'instructions':
         return (
           <InstructionsTab />
+        );
+      case 'about':
+        return (
+          <AboutTab />
         );
       default:
         return (
