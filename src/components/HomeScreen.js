@@ -8,7 +8,7 @@ let {
   View,
 } = React;
 
-class HomeTab extends React.Component {
+class HomeScreen extends React.Component {
   constructor(props: any) {
     super(props);
     this.state = {
@@ -35,8 +35,8 @@ class HomeTab extends React.Component {
     Animated.spring(                          // Base: spring, decay, timing
       this.state.bounceValue,                 // Animate `bounceValue`
       {
-        toValue: 1,                           // Animate to original size
-        tension: 200                          // Spring with more tension
+        toValue: 1.2,                         // Animate to original size
+        tension: 70                           // Spring with default tension
       }
     ).start();
   }
@@ -66,4 +66,4 @@ let styles = StyleSheet.create({
   }
 });
 
-module.exports = HomeTab;
+module.exports = HomeScreen;

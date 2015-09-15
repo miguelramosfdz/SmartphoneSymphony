@@ -1,9 +1,7 @@
-'use strict';
+let React = require('react-native');
+let NavigationBar = require('react-native-navbar');
 
-var React = require('react-native');
-var NavigationBar = require('react-native-navbar');
-
-var {
+let {
   StyleSheet,
   Component,
   Navigator,
@@ -11,20 +9,19 @@ var {
 } = React;
 
 
-var TabItemNavigator = React.createClass({
-
+let TabItemNavigator = React.createClass({
   renderScene: function(route, navigator) {
-
-    var Component = route.component;
-    var navBar = (
+    let Component = route.component;
+    let navBar = (
       <NavigationBar
+        titleColor='white'
+        backgroundStyle={styles.navBar}
+        buttonsColor='white'
         title={route.name}
         navigator={navigator}
         route={route}
-        {...route.props}
-        />
+        {...route.props} />
     );
-
     return (
       <View style={styles.container}>
         {navBar}
@@ -32,14 +29,10 @@ var TabItemNavigator = React.createClass({
           navigator={navigator}
           route={route}
           topNavigator={this.props.topNavigator}
-          topOverlay={this.props.topOverlay}
-
-          />
-
+          topOverlay={this.props.topOverlay} />
       </View>
     );
   },
-
   render: function() {
     return (
       <Navigator
@@ -50,22 +43,20 @@ var TabItemNavigator = React.createClass({
           ...route.sceneConfig || Navigator.SceneConfigs.FloatFromRight,
           gestures: Navigator.SceneConfigs.FloatFromRight.gestures
         })}
-        initialRoute={this.props.route.initialRoute}
-      />
+        initialRoute={this.props.route.initialRoute} />
     );
   }
 });
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: 1,
     left: 0, // https://github.com/facebook/react-native/issues/1332
     backgroundColor: 'white'
   },
-  navigator: {
-    backgroundColor: 'white',
+  navBar: {
+    backgroundColor: '#FF5744'
   }
-
 });
 
 module.exports = TabItemNavigator;

@@ -7,13 +7,10 @@ let {
   View,
 } = React;
 
-class InstructionsTab extends React.Component {
+class InstructionsScreen extends React.Component {
   render(): ReactElement {
     return (
       <View style={styles.container}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>Instructions</Text>
-        </View>
         <ScrollView
           contentContainerStyle={styles.contentContainer}
           style={styles.scrollView}>
@@ -39,12 +36,6 @@ let styles = StyleSheet.create({
   contentContainer: {
     padding: 20
   },
-  title: {
-    fontSize: 72,
-    fontFamily: 'SavoyeLetPlain',
-    textAlign: 'center',
-    color: 'white'
-  },
   text: {
     fontSize: 22,
     fontFamily: 'Bradley Hand',
@@ -54,4 +45,4 @@ let styles = StyleSheet.create({
   }
 });
 
-module.exports = InstructionsTab;
+module.exports = InstructionsScreen;

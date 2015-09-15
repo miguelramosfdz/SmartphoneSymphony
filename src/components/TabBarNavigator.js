@@ -1,33 +1,34 @@
-'use strict';
+let React = require('react-native');
+let ContextNavigator = require('./ContextNavigator');
+let DummyScreen = require('./DummyScreen');
 
-var React = require('react-native');
-var ContextNavigator = require('./ContextNavigator');
-var DummyScreen = require('./DummyScreen');
+let HomeScreen = require('./HomeScreen');
+let InstructionsScreen = require('./InstructionsScreen');
+let AboutScreen = require('./AboutScreen');
 
-var {
+let { TabBarIOS } = require('react-native-icons');
+
+let {
   StyleSheet,
   Component,
   Image,
   Navigator,
-  TabBarIOS,
   View
 } = React;
 
-
-
-var ROUTE_STACK = [
+const ROUTE_STACK = [
   {
     component: ContextNavigator,
     initialRoute: {
-      name: 'Featured',
-      component: DummyScreen,
+      name: 'Home',
+      component: HomeScreen,
       color: 'orange',
     }
   },
   {
     component: ContextNavigator,
     initialRoute: {
-      name: 'History',
+      name: 'Perform',
       component: DummyScreen,
       color: 'red'
     }
@@ -35,24 +36,24 @@ var ROUTE_STACK = [
   {
     component: ContextNavigator,
     initialRoute: {
-      name: 'Bookmarks',
-      component: DummyScreen,
+      name: 'Instructions',
+      component: InstructionsScreen,
       color: 'blue'
     }
   },
   {
     component: ContextNavigator,
     initialRoute: {
-      name: 'Downloads',
-      component: DummyScreen,
+      name: 'About',
+      component: AboutScreen,
       color: 'green'
     }
   },
 ];
-var INIT_ROUTE_INDEX = 0;
+const INIT_ROUTE_INDEX = 0;
 
 
-var TabBarNav = React.createClass({
+let TabBarNav = React.createClass({
 
   getInitialState: function() {
     return {
@@ -66,7 +67,12 @@ var TabBarNav = React.createClass({
       <TabBarIOS>
 
         <TabBarIOS.Item
-          systemIcon="featured"
+          name="home"
+          iconName={'ion|ios-home-outline'}
+          title={'Home'}
+          badgeValue={null}
+          iconSize={32}
+          accessibilityLabel="Home Tab"
           selected={this.state.tabIndex === 0}
           onPress={() => {
             this.props.onTabIndex(0);
@@ -76,7 +82,11 @@ var TabBarNav = React.createClass({
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
-          systemIcon="history"
+          name="perform"
+          iconName={'ion|mic-c'}
+          title={'Perform'}
+          iconSize={28}
+          accessibilityLabel="Perform Tab"
           selected={this.state.tabIndex === 1}
           onPress={() => {
             this.props.onTabIndex(1);
@@ -86,7 +96,11 @@ var TabBarNav = React.createClass({
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
-          systemIcon="bookmarks"
+          name="instructions"
+          iconName={'ion|ios-information'}
+          title={'Instructions'}
+          iconSize={32}
+          accessibilityLabel="Instructions Tab"
           selected={this.state.tabIndex === 2}
           onPress={() => {
             this.props.onTabIndex(2);
@@ -96,7 +110,11 @@ var TabBarNav = React.createClass({
         </TabBarIOS.Item>
 
         <TabBarIOS.Item
-          systemIcon="downloads"
+          name="about"
+          iconName={'ion|ios-help'}
+          title={'About'}
+          iconSize={32}
+          accessibilityLabel="About Tab"
           selected={this.state.tabIndex === 3}
           onPress={() => {
             this.props.onTabIndex(3);
@@ -104,6 +122,7 @@ var TabBarNav = React.createClass({
           }}>
           <View />
         </TabBarIOS.Item>
+
       </TabBarIOS>
       </View>
     );
@@ -112,10 +131,10 @@ var TabBarNav = React.createClass({
 });
 
 
-var TabBarNavigator = React.createClass({
+let TabBarNavigator = React.createClass({
 
   renderScene: function(route, navigator) {
-    var Component = route.component;
+    let Component = route.component;
     return (
       <Component
         navigator={navigator}
@@ -152,7 +171,7 @@ var TabBarNavigator = React.createClass({
 });
 
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
   container: {
     flex: 1,
     left: 0, // https://github.com/facebook/react-native/issues/1332

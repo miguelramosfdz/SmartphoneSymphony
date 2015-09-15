@@ -49,7 +49,6 @@ var DummyScreen = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    left: 0, // https://github.com/facebook/react-native/issues/1332
     backgroundColor: 'white',
     padding: 16
   },
