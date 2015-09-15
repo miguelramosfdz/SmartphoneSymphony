@@ -46,7 +46,7 @@ var IconNavigator = React.createClass({
         styles={styles.tabBar}>
         <TabBarItemIOS
           name="home"
-          iconName={'material|home'}
+          iconName={'ion|ios-home'}
           title={'Home'}
           badgeValue={null}
           iconSize={32}
@@ -61,9 +61,9 @@ var IconNavigator = React.createClass({
         </TabBarItemIOS>
         <TabBarItemIOS
           name="perform"
-          iconName={'material|surround-sound'}
+          iconName={'ion|mic-c'}
           title={'Perform'}
-          iconSize={32}
+          iconSize={28}
           accessibilityLabel="Perform Tab"
           selected={this.state.selectedTab === 'perform'}
           onPress={() => {
@@ -75,7 +75,7 @@ var IconNavigator = React.createClass({
         </TabBarItemIOS>
         <TabBarItemIOS
           name="instructions"
-          iconName={'material|info'}
+          iconName={'ion|ios-information'}
           title={'Instructions'}
           iconSize={32}
           accessibilityLabel="Instructions Tab"
@@ -89,7 +89,7 @@ var IconNavigator = React.createClass({
         </TabBarItemIOS>
         <TabBarItemIOS
           name="about"
-          iconName={'material|face'}
+          iconName={'ion|ios-help'}
           title={'About'}
           iconSize={32}
           accessibilityLabel="Messages Tab"
