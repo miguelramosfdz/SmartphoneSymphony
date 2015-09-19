@@ -1,6 +1,7 @@
 let React = require('react-native');
 let ContextNavigator = require('./ContextNavigator');
 let DummyScreen = require('./DummyScreen');
+let PerformScreen = require('./PerformScreen');
 
 let HomeScreen = require('./HomeScreen');
 let InstructionsScreen = require('./InstructionsScreen');
@@ -29,7 +30,7 @@ const ROUTE_STACK = [
     component: ContextNavigator,
     initialRoute: {
       name: 'Perform',
-      component: DummyScreen,
+      component: PerformScreen,
       color: 'red'
     }
   },
